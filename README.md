@@ -1,11 +1,5 @@
 # App_store
 
-
-```
-    flutterSdk:3.0.2
-```
-
-
 ```
     flutterSdk:3.0.2
 ```

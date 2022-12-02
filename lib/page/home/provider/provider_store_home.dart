@@ -10,7 +10,7 @@ import '../../../db/store_database.dart';
 // https://itunes.apple.com/hk/rss/topgrossingapplications/limit=${limit}/json
 // https://itunes.apple.com/hk/rss/topfreeapplications/limit=${limit}/json
 // https://itunes.apple.com/hk/lookup?id=${id}
-
+const int pageSize = 10;
 class ProviderStoreHome extends ChangeNotifier {
   StateStoreHome state = StateStoreHome();
   StoreDatabase database = StoreDatabase.instance;
@@ -21,10 +21,10 @@ class ProviderStoreHome extends ChangeNotifier {
   }
 
   Future requestHomeList() async {
-    var dbData = await database.queryApp(offset: 10);
+    var dbData = await database.queryApp(offset: pageSize);
     var firstList = [];
     if (dbData.isNotEmpty) {
-      firstList = dbData.length >= 10 ? dbData.sublist(0, 10) : dbData;
+      firstList = dbData.length >= pageSize ? dbData.sublist(0, pageSize) : dbData;
       state.list.addAll(firstList.translateEntity);
       notifyListeners();
       return;
@@ -40,7 +40,7 @@ class ProviderStoreHome extends ChangeNotifier {
       /// 先保存100条数据。到数据库。
       cacheData = List<Map<String, dynamic>>.from(list.translateJson);
       await database.insert(cacheData);
-      firstList = cacheData.length >= 10 ? cacheData.sublist(0, 10) : cacheData;
+      firstList = cacheData.length >= pageSize ? cacheData.sublist(0, pageSize) : cacheData;
       state.list.addAll(firstList.translateEntity);
       notifyListeners();
     }

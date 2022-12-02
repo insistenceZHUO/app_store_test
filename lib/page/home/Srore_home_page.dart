@@ -66,7 +66,7 @@ class _StoreHomePageState extends State<StoreHomePage> {
               controller: _refreshController,
               onRefresh: () => _onRefresh(_provider),
               onLoading: () async {
-                offset += 10;
+                offset += pageSize;
                 try {
                   await _provider.loadMore(offset);
                 } finally {

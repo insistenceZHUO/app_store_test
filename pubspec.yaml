@@ -25,10 +25,9 @@ dependencies:
     sdk: flutter
 
   dio: ^4.0.6
-  provider: ^6.0.4
+  provider: ^6.0.4 #
   sqflite: ^2.0.0+3 # 数据库
-  pull_to_refresh: ^2.0.0
-  path_provider: ^2.0.1 # 本地文件路径获取
+  pull_to_refresh: ^2.0.0 #下拉刷新、上拉加载更多
 
 
 

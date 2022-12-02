@@ -20,48 +20,61 @@ class HomeRecommendView extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           itemBuilder: (c, i) {
             var item = list[i];
-            return Container(
-              width: 80,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(16),
-                    child: Image.network(
-                      item.icon,
-                      width: 80,
-                      height: 80,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  Text(
-                    item.name,
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 1,
-                    textAlign: TextAlign.center,
-                  ),
-                  Text(
-                    item.category,
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 1,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Color(0xff999999),
-                    ),
-                  ),
-                ],
-              ),
-
-            );
+            return _AppItemView(item: item);
           },
           itemCount: list.length,
           separatorBuilder: (BuildContext context, int index) {
-            return SizedBox(
+            return const SizedBox(
               width: 20,
             );
           },
         ),
+      ),
+    );
+  }
+}
+
+class _AppItemView extends StatelessWidget {
+  const _AppItemView({
+    Key? key,
+    required this.item,
+  }) : super(key: key);
+
+  final StoreHomeListEntity item;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 80,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(16),
+            child: Image.network(
+              item.icon,
+              width: 80,
+              height: 80,
+              fit: BoxFit.cover,
+            ),
+          ),
+          Text(
+            item.name,
+            overflow: TextOverflow.ellipsis,
+            maxLines: 1,
+            textAlign: TextAlign.center,
+          ),
+          Text(
+            item.category,
+            overflow: TextOverflow.ellipsis,
+            maxLines: 1,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              fontSize: 12,
+              color: Color(0xff999999),
+            ),
+          ),
+        ],
       ),
     );
   }

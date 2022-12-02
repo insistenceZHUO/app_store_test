@@ -36,9 +36,6 @@ class MyApp extends StatelessWidget {
           behavior: HitTestBehavior.opaque,
           onTap: () => _hideKeyboard(context),
           child: StoreHomePage(),
-          // child: CustomPaint(
-          //   size: Size(100, 100),
-          // ),
         ),
       ),
     );
@@ -49,15 +46,5 @@ class MyApp extends StatelessWidget {
     if (!currentFocus.hasPrimaryFocus && currentFocus.focusedChild != null) {
       FocusManager.instance.primaryFocus!.unfocus();
     }
-  }
-}
-
-class CustomPaintView extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {}
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    return true;
   }
 }

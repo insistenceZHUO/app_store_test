@@ -77,10 +77,13 @@ class AppItemWidget extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 2),
-                      child: Text(item.category, style: TextStyle(
-                        fontSize: 12,
-                        color: Color(0xff4b3636),
-                      ),),
+                      child: Text(
+                        item.category,
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: const Color(0xff4b3636),
+                        ),
+                      ),
                     ),
                     Row(
                       children: [
@@ -89,14 +92,14 @@ class AppItemWidget extends StatelessWidget {
                           itemCount: 5,
                           itemSize: 12,
                           physics: NeverScrollableScrollPhysics(),
-                          itemBuilder: (context, _) => Icon(
+                          itemBuilder: (context, _) => const Icon(
                             Icons.star,
                             color: Colors.amber,
                           ),
                         ),
                         Text(
                           '($comment)',
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 10,
                             color: Color(0xff999999),
                           ),

@@ -5,6 +5,31 @@
     flutterSdk:3.0.2
 ```
 
+
+```
+    flutterSdk:3.0.2
+```
+
+#### 安装
+
+```
+    git clone https://github.com/insistenceZHUO/app_store_test.git
+```
+
+#### 下载依赖包
+```
+    flutter pub get
+```
+
+#### 链接模拟器执行
+
+```
+    flutter run
+```
+
+
+
+
 #### 项目中用到一些关键库。
 - [provider：状态管理框架。](https://pub.flutter-io.cn/packages/provider)
 - [dio： 网路请求。](https://pub.flutter-io.cn/packages/dio)
